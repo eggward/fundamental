@@ -69,7 +69,15 @@
                     target = document.getElementById(targetId);
                     setExpanded(target, !isPressed);
                 }
+                return;
             }
+            //general toggles
+            //trigger
+            var isExpanded = this.getAttribute("aria-expanded") === "true";
+            this.setAttribute("aria-expanded", !isExpanded);
+            //target
+            var targetIsHidden = target.getAttribute("aria-hidden") == "true";
+            target.setAttribute("aria-hidden", isExpanded);
         })
     }
 
